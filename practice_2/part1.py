@@ -61,9 +61,11 @@ class PasswordChecker:
             self.U += 10
 
     def _check_complexity(self):
-        if self.has_lower and self.has_upper and self.N > 0 and self.S > 0:
+        passed_checks = sum([self.has_lower, self.has_upper, self.N > 0, self.S > 0])
+
+        if passed_checks == 4:
             self.U += 6
-        else:
+        elif passed_checks == 3:
             self.U += 4
 
     def _get_strength(self):
